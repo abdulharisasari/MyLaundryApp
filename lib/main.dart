@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:mylaundry/provider/laundry_provider.dart';
+import 'package:mylaundry/provider/user_provider.dart';
 import 'package:provider/src/provider.dart';
 import 'package:secure_application/secure_application.dart';
 import 'package:flutter_screenutil/src/screenutil_init.dart';
 import '../routers/routers.dart' as RouterGen;
 import 'provider/app_provider.dart';
-import 'service/assets.dart';
+import 'service/themes.dart';
 import 'package:provider/src/change_notifier_provider.dart';
 
 
@@ -25,7 +28,19 @@ class MyLaundryMobile extends StatefulWidget {
 
 class _MyLaundryMobileState extends State<MyLaundryMobile> {
   final SecureApplicationController _secureApplicationController = SecureApplicationController(SecureApplicationState());
+  @override
+  void initState() {
+    super.initState();
+    _ini();
+  }
+
+  void _ini() async{
+     await initializeDateFormatting('en', null);
+    
+  }
+
   
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -34,6 +49,8 @@ class _MyLaundryMobileState extends State<MyLaundryMobile> {
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_) => AppProvider()),
+            ChangeNotifierProvider(create: (_) => UserProvider()),
+            ChangeNotifierProvider(create: (_) => LaundryProvider())
           ],
           child: MaterialApp(
             title: 'Booble Laundry',
