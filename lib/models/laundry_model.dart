@@ -6,7 +6,7 @@ class LaundryModel {
   double? rating;
   double? distance;
   int? totalOrders;
-  String? imageUrl; // ← Tambahan
+  String? imageUrl; 
 
   LaundryModel({
     this.id,
@@ -16,7 +16,7 @@ class LaundryModel {
     this.rating,
     this.distance,
     this.totalOrders,
-    this.imageUrl, // ← Tambahan
+    this.imageUrl, 
   });
 
   factory LaundryModel.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class LaundryModel {
       rating: (json['rating'] as num?)?.toDouble(),
       distance: (json['distance'] as num?)?.toDouble(),
       totalOrders: json['total_orders'],
-      imageUrl: json['image_url'], // ← Tambahan
+      imageUrl: json['image_url'], 
     );
   }
 
@@ -44,6 +44,6 @@ class LaundryModel {
         'rating': rating,
         'distance': distance,
         'total_orders': totalOrders,
-        'image_url': imageUrl, // ← Tambahan
+        'image_url': imageUrl, 
       };
 }

@@ -19,3 +19,4 @@ const int lightColor4 = 0xFFFFFFFF;
 
 // primary color
 const int primaryColor = 0xFF32766A;
+const int secondaryColor = 0xFFECEEEF;

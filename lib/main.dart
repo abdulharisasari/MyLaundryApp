@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mylaundry/provider/laundry_provider.dart';
+import 'package:mylaundry/provider/order_provider.dart';
 import 'package:mylaundry/provider/user_provider.dart';
 import 'package:provider/src/provider.dart';
 import 'package:secure_application/secure_application.dart';
@@ -50,7 +51,8 @@ class _MyLaundryMobileState extends State<MyLaundryMobile> {
           providers: [
             ChangeNotifierProvider(create: (_) => AppProvider()),
             ChangeNotifierProvider(create: (_) => UserProvider()),
-            ChangeNotifierProvider(create: (_) => LaundryProvider())
+            ChangeNotifierProvider(create: (_) => LaundryProvider()),
+            ChangeNotifierProvider(create: (_) => OrderProvider())
           ],
           child: MaterialApp(
             title: 'Booble Laundry',
